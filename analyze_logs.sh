@@ -24,7 +24,7 @@ echo "============================================================"
 echo "Log file: $LOG_FILE"
 echo ""
 
-SUCCESS_COUNT=$(grep "sshd.*Accepted password" "$LOG_FILE" | wc -l)
+SUCCESS_COUNT=$(grep "Accepted password" "$LOG_FILE" | wc -l)
 
 echo "===Successful SSH logins==="
 echo "Successful SSH logins: $SUCCESS_COUNT"
@@ -36,7 +36,7 @@ else
 fi
 echo ""
 
-FAILED_COUNT=$(grep "sshd.*Failed password" "$LOG_FILE" | wc -l)
+FAILED_COUNT=$(grep "Failed password" "$LOG_FILE" | wc -l)
 
 echo "===Failed SSH logins==="
 echo "Failed SSH logins: $FAILED_COUNT"
@@ -47,10 +47,9 @@ else
    echo -e "${GREEN}OK: No failed SSH logins found${NC}"
 fi
 
-
 echo ""
 echo "===Successful SSH login IP adresses==="
-grep "sshd.*Accepted password for" "$LOG_FILE" \
+grep "Accepted password for" "$LOG_FILE" \
 | awk '{for(i=1;i<=NF;i++) if($i ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/) print $i}' \
 | sort \
 | uniq -c \
@@ -58,7 +57,7 @@ grep "sshd.*Accepted password for" "$LOG_FILE" \
 echo ""
 
 echo "===Potential brute force sources==="
-grep "sshd.*Failed password for" "$LOG_FILE" \
+grep "Failed password for" "$LOG_FILE" \
 | awk '{for(i=1;i<=NF;i++) if($i ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/) print $i}' \
 | sort \
 | uniq -c \
