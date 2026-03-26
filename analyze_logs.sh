@@ -1,18 +1,21 @@
 #!/bin/bash
 
-LOG_FILE="/var/log/secure"
 TOP_LIMIT=5
 BRUTE_FORCE_THRESHOLD=5
+
+if [ -f "/var/log/secure" ]; then
+   LOG_FILE="/var/log/secure"
+elif [ -f "/var/log/auth.log" ]; then
+   LOG_FILE="var/log/auth.log"
+else
+   echo "No valid log file found"
+   exit 1
+fi
 
 GREEN="\e[32m"
 RED="\e[31m"
 YELLOW="\e[33m"
 NC="\e[0m"
-
-if [ ! -f "$LOG_FILE" ]; then
-	echo "Log file not found: $LOG_FILE"
-	exit 1
-fi
 
 echo ""
 echo "============================================================"
