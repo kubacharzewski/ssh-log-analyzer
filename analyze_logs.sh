@@ -6,7 +6,7 @@ BRUTE_FORCE_THRESHOLD=5
 if [ -f "/var/log/secure" ]; then
    LOG_FILE="/var/log/secure"
 elif [ -f "/var/log/auth.log" ]; then
-   LOG_FILE="var/log/auth.log"
+   LOG_FILE="/var/log/auth.log"
 else
    echo "No valid log file found"
    exit 1
