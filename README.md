@@ -15,7 +15,9 @@ This is a simple bash script that analyzes SSH authentication logs to detect log
 
 - Linux system
 - Bash
-- Access to /var/log/secure
+- Access to system logs:
+  - `/var/log/secure` (CentOS / RHEL)
+  - `/var/log/auth.log` (Ubuntu / Debian)
 - sudo privileges
 
 ## Usage
