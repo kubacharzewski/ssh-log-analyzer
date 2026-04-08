@@ -1,4 +1,17 @@
+# logs
 *.log
+
+# temp files
 *.tmp
+*.temp
+
+# output directory
 output/
+
+# macOS
 .DS_Store
+
+# ssh keys (safety)
+*.key
+*.pem
+id_rsa*
