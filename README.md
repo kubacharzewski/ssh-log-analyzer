@@ -1,6 +1,6 @@
 # SSH Log Analyzer
 
-This is a simple bash script that analyzes SSH authentication logs to detect login activity and potential security threats such as brute force attacks.
+This is a simple Bash script that analyzes SSH authentication logs to detect login activity and potential security threats such as brute force attacks.
 
 ## Features
 
